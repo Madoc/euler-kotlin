@@ -14,12 +14,6 @@ even-valued terms.
 object Implementation002 : Implementation {
   override fun computeSolution(): String = fib().filter { it % 2 == 0 }.takeWhile { it <= 4_000_000 }.sum().toString()
 
-  /** @return Infinite sequence of Fibonacchi numbers. */
-  private fun fib(): Sequence<Int> = sequence {
-    var (a, b) = Pair(0, 1)
-    while (true) {
-      yield(b)
-      a = b.also { b += a }
-    }
-  }
+  /** @return Infinite sequence of Fibonacci numbers. */
+  private fun fib(a: Int = 0, b: Int = 1): Sequence<Int> = sequenceOf(a + b) + Sequence { fib(b, a + b).iterator() }
 }
