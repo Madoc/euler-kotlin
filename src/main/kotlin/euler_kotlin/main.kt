@@ -11,8 +11,7 @@ private fun checkProblem(problem: Problem) {
   else reportFailure(computedSolution, durationMillis)
 }
 
-private fun reportChecking(problem: Problem): Unit =
-  print("Problem ${problem.number()}: ${problem.title} ")
+private fun reportChecking(problem: Problem): Unit = print("Problem ${problem.number()}: ${problem.title} ")
 
 private fun reportSuccess(durationMillis: Long): Unit = println("\u001B[32m✓\u001B[0m ($durationMillis ms)")
 
