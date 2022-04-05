@@ -10,7 +10,7 @@ What is the largest prime factor of the number 600851475143?
 object Implementation003 : Implementation {
   override fun computeSolution(): String = largestPrimeFactor(600_851_475_143).toString()
 
-  private fun largestPrimeFactor(n: Long): Long {
+  private tailrec fun largestPrimeFactor(n: Long): Long {
     for (f in 2..n / 2) if (n % f == 0L) return largestPrimeFactor(n / f)
     return n
   }
